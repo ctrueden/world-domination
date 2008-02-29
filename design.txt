@@ -1,0 +1,126 @@
+Save & load game state to disk
+ - use XStream: http://xstream.codehaus.org/ - either JSON or XML
+
+game runs in a single JVM as a server
+clients transmit commands to the server via sockets over localhost
+game state is abstracted from client rendering
+so we can have e.g. a BBS/Door client, and a web client
+think about this more, and look for useful tools to help
+ - maybe server should simply support multiple output protocols
+ - learn about AJAX to evaluate how web client's output protocol would work
+ - other possible clients: applet, instant messaging, IRC, CLI
+
+Character
+ - base class holding details common to PCs and NPCs
+ - instance of this class represents a PC or NPC
+ - PCs are controlled by a player, of course
+ - NPCs can be townsfolk, vassals, lords, monsters, ...
+  + some modules have NPCs associated with them; e.g.:
+   * the tavern has a bartender
+   * every town has an old man
+   * captain of the guard
+   * governor of the province
+   * many more
+ - fields:
+  + player - name of the character's player, or null for an NPC - string
+  + name - name of the character - string
+  + race - enum
+  + gender - enum
+  + age - integer
+  + class - enum
+   * can be one of the normally accessible PC classes,
+   * or a monster class,
+   * or a special class
+  + level - integer
+  + stats (level & class driven) - integers
+   * strength
+   * vitality
+   * speed
+   * stealth
+   * skill
+   * magic
+   * faith
+   * luck
+   * charm
+   * leadership (?)
+   * current/max HP/MP/etc.
+  + stats (action & situation driven) - integers
+   * honor
+   * fame
+   * renown
+  + current location - Province
+  + gear/items - list of Items?
+  + equipment
+   * weapon - Item
+   * armor - Item
+   * shield - Item
+   * accessory - Item
+   * etc. - more Items
+  + spells - list of Spells known?
+  + lord - Character to whom this character currently owes allegiance, if any
+   * could be a PC or an NPC
+   * e.g., if you sell your soul to Satan, it will be Satan (an NPC)
+  + provincesGoverned - list of Provinces this character governs
+  + provincesOwned - list of Provinces the character owns
+  + 
+ - methods to manipulate these fields
+ - derived stats are not fields, but have methods that compute from the fields
+  + attack - based on strength & weaponry
+  + hit%, crit% - based on skill & luck (3 attack results: miss, hit & crit)
+  + defense - based on vitality & armor
+  + evade% - based on speed, stealth & luck
+
+Province
+ - class holding details about provinces
+ - instance of class represents a particular province
+ - fields:
+  + name - string
+  + modules - list of Modules
+  + owner - Character, or null if no one controls it
+  + governor - Character, or null if no one governs
+
+World
+ - class holding details about the geographical configuration of the world
+ - fields:
+  + provinces - list of Provinces
+  + TODO finish listing these
+
+Game
+ - has pointers to the entire game state (the World, all Characters, etc.)
+ - serialized to/from disk with XStream as JSON or XML
+
+Module
+ - base class for describing a particular piece of the game
+ - subclass describes a particular module, such as one of the world wonders
+ - fields:
+  + name - string
+ - methods:
+  + TODO figure out this API
+ - modules can reference other modules
+ - the main game itself is the "master" module
+
+FieldUnitType
+ - class for describing a particular unit type of an army
+ - one instance per field unit type
+ - fields:
+  + name - string (e.g., 'footmen', 'pixies', 'trolls')
+  + melee - integer
+  + ranged - integer
+  + max HP - integer
+  + cur HP - integer
+ - first round of combat, armies deal each other ranged damage
+ - then armies close and deal melee on subsequent rounds
+ - damage is divided by % according to number of each type of unit
+ - consider heal type units
+ - heroes do not take damage from enemy army until allied army is defeated
+ - heroes damage enemy army based on their stats
+
+FieldSquad
+ - class for an actual group of some kind of field unit
+ - one instance per actual field unit group
+ - fields:
+  - type - FieldUnitType
+  - nickname - string (e.g., 'trollinators', 'doomsday squad')
+  - count - number of units in the squad - integer
+
+TODO consider whether squads should be allowed to contain multiple unit types
