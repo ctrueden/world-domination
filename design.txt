@@ -10,6 +10,26 @@ think about this more, and look for useful tools to help
  - learn about AJAX to evaluate how web client's output protocol would work
  - other possible clients: applet, instant messaging, IRC, CLI
 
+GameServer
+ - manages ClientConnections with clients
+ - protocol used is abstracted from server
+ - SocketProtocol is the initial one i'll implement
+ - but maybe we'll add XML-RPC protocol, etc., later
+
+DataProtocol
+ - interface for communication using a particular protocol
+ - methods:
+  + void send(String)
+  + char receive()
+
+ClientConnection
+ - represents connection to a specific client
+ - calls protocol.receive() whenever a character is received
+ - server calls protocol.send(String) as appropriate
+  + often in response to user input from receive
+  + but sometimes in response to other client's actions
+  + sometimes in response to time elapsing as well (e.g., connection timeout)
+
 Character
  - base class holding details common to PCs and NPCs
  - instance of this class represents a PC or NPC
@@ -107,7 +127,6 @@ FieldUnitType
   + melee - integer
   + ranged - integer
   + max HP - integer
-  + cur HP - integer
  - first round of combat, armies deal each other ranged damage
  - then armies close and deal melee on subsequent rounds
  - damage is divided by % according to number of each type of unit
@@ -115,12 +134,16 @@ FieldUnitType
  - heroes do not take damage from enemy army until allied army is defeated
  - heroes damage enemy army based on their stats
 
-FieldSquad
- - class for an actual group of some kind of field unit
- - one instance per actual field unit group
+FieldUnit
+ - class for an actual group of field units (e.g., 530 Knights)
  - fields:
-  - type - FieldUnitType
-  - nickname - string (e.g., 'trollinators', 'doomsday squad')
-  - count - number of units in the squad - integer
+  + type - FieldUnitType
+  + count - number of units in the squad - integer
+  + cur HP - list of current HP values
 
-TODO consider whether squads should be allowed to contain multiple unit types
+FieldSquad
+ - class for a squad of various field units (e.g., 50 Knights + 20 Pixies)
+ - fields:
+  + nickname - string (e.g., 'trollinators', 'doomsday squad')
+  + units - list of FieldUnits
+
