@@ -29,11 +29,11 @@ public class GUIClient implements KeyListener {
     socket = new Socket(url, port);
     alive = true;
 
-    textArea = new JTextArea();
+    textArea = new JTextArea(25, 80);
     textArea.setEditable(false);
     JScrollPane areaScroll = new JScrollPane(textArea);
     areaScroll.setVerticalScrollBarPolicy(
-      JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+      JScrollPane.VERTICAL_SCROLLBAR_NEVER);
     textArea.addKeyListener(this);
 
     JFrame frame = new JFrame("GUI Game Client - " + url + ":" + port);
@@ -42,7 +42,8 @@ public class GUIClient implements KeyListener {
     pane.setLayout(new BorderLayout());
     pane.add(areaScroll, BorderLayout.CENTER);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setBounds(100, 100, 700, 500);
+    frame.setLocation(100, 100);
+    frame.pack();
 
     in = socket.getInputStream();
 
