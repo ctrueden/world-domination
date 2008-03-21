@@ -55,6 +55,7 @@ public class SocketProtocol implements DataProtocol {
   /* @see worlddom.server.DataProtocol#receive(Object) */
   public String receive(Object handle) {
     Socket socket = (Socket) handle;
+    // TODO - put a timeout here, maybe 10 minutes (eventually configurable)
     try {
       InputStream in = socket.getInputStream();
       int avail = in.available();

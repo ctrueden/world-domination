@@ -35,7 +35,7 @@ public class GameServer {
       protoThreads[i] = new ProtocolThread(this, protocols[i]);
       protoThreads[i].start();
     }
-    System.out.println("Game server is up and running.");//TEMP
+    System.out.println("Game server is up and running.");
   }
 
   // -- GameServer API methods --
@@ -60,6 +60,11 @@ public class GameServer {
       conn.start();
       return id;
     }
+  }
+
+  /** Informs teh server of a client disconnected. */
+  public synchronized void removeClient(int id) {
+    clients[id] = null;
   }
 
   /** Responds to input from a particular client. */

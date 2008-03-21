@@ -33,7 +33,7 @@ public class ClientConnection extends Thread {
     this.protocol = protocol;
     this.handle = handle;
     alive = true;
-    System.out.println("New client connection #" + id);//TEMP
+    System.out.println("Client #" + id + " connected");
   }
 
   // -- ClientConnection API methods --
@@ -57,6 +57,8 @@ public class ClientConnection extends Thread {
         exc.printStackTrace();
       }
     }
+    System.out.println("Client #" + id + " disconnected");
+    server.removeClient(id);
   }
 
 }

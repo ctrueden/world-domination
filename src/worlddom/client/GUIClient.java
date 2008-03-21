@@ -5,14 +5,13 @@
 package worlddom.client;
 
 import java.awt.BorderLayout;
-import java.awt.event.KeyListener;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.io.*;
 import java.net.Socket;
 import javax.swing.*;
 
 /** Simple GUI game client that connects using sockets protocol. */
-public class GUIClient implements KeyListener {
+public class GUIClient implements KeyListener, WindowListener {
 
   // -- Fields --
 
@@ -41,7 +40,7 @@ public class GUIClient implements KeyListener {
     frame.setContentPane(pane);
     pane.setLayout(new BorderLayout());
     pane.add(areaScroll, BorderLayout.CENTER);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.addWindowListener(this);
     frame.setLocation(100, 100);
     frame.pack();
 
@@ -67,6 +66,13 @@ public class GUIClient implements KeyListener {
             exc.printStackTrace();
           }
         }
+        System.out.println("Closing socket");
+        try {
+          socket.close();
+        }
+        catch (IOException exc) {
+          exc.printStackTrace();
+        }
       }
     }.start();
 
@@ -90,6 +96,25 @@ public class GUIClient implements KeyListener {
       }
     }
   }
+
+  // -- WindowListener API methods --
+
+  public void windowDeactivated(WindowEvent e) { }
+
+  public void windowActivated(WindowEvent e) { }
+
+  public void windowDeiconified(WindowEvent e) { }
+
+  public void windowIconified(WindowEvent e) { }
+
+  public void windowClosed(WindowEvent e) { }
+
+  public void windowClosing(WindowEvent e) {
+    alive = false;
+    e.getWindow().dispose();
+  }
+
+  public void windowOpened(WindowEvent e) { }
 
   // -- Helper methods --
 
