@@ -13,6 +13,9 @@ public class Province {
   /** Name of the province. */
   public String name;
 
+  /** Introduction to this province. */
+  public String description;
+
   public Vector<Province> neighbors = new Vector<Province>();
 
   public Character owner;

@@ -55,6 +55,9 @@ public abstract class Module {
   /** Instructs the module to handle some input from the client. */
   public abstract void processInput(String input);
 
+  /** By default all characters can access a module. */
+  public boolean canAccess(Person person) { return true; }
+
   /** Sends output back to the game server from the active module. */
   public void output(String output) { server.output(clientId, output); }
 

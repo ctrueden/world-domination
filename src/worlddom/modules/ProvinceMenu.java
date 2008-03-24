@@ -19,27 +19,12 @@ public class ProvinceMenu extends Menu {
     int clientId, Module parent, Province p)
   {
     super(server, clientId, parent);
-  }
-
-  // -- Module API methods --
-
-  public void activate() {
-    doOutput();
-  }
-
-  public void processInput(String input) {
-    if (input == null || input.equals("")) return;
-    output(input);
-    doOutput();
-  }
-
-  // -- Helper methods --
-
-  private void doOutput() {
-    StringBuffer sb = new StringBuffer();
-    sb.append("ProvinceMenu: eventually there will be some choices here.\n");
-    sb.append("Enter your choice: ");
-    output(sb.toString());
+    description = "Welcome to " + p.name + ", where anything is possible.\n";
+    items.add(new MenuItem(null, "(D)o something fantastic", 'd'));
+    items.add(new MenuItem(null, "(N)ever give up", 'n'));
+    items.add(new MenuItem(null, "(S)top being such an ass", 's'));
+    items.add(new MenuItem(null, "(T)ravel to another province", 't'));
+    items.add(new MenuItem(null, "(V)isit the local tavern", 'v'));
   }
 
 }
