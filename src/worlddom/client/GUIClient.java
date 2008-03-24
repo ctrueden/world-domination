@@ -5,6 +5,7 @@
 package worlddom.client;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.event.*;
 import java.io.*;
 import java.net.Socket;
@@ -30,6 +31,7 @@ public class GUIClient implements KeyListener, WindowListener {
 
     textArea = new JTextArea(25, 80);
     textArea.setEditable(false);
+    textArea.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
     JScrollPane areaScroll = new JScrollPane(textArea);
     areaScroll.setVerticalScrollBarPolicy(
       JScrollPane.VERTICAL_SCROLLBAR_NEVER);

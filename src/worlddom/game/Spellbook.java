@@ -11,6 +11,6 @@ public class Spellbook {
   // -- Fields --
 
   /** List of spells. */
-  public Vector<Spell> spells;
+  public Vector<Spell> spells = new Vector<Spell>();
 
 }

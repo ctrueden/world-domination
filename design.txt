@@ -86,8 +86,8 @@ Character
  - methods to manipulate these fields
  - derived stats are not fields, but have methods that compute from the fields
   + attack - based on strength & weaponry
-  + hit%, crit% - based on skill & luck (3 attack results: miss, hit & crit)
   + defense - based on vitality & armor
+  + hit%, crit% - based on skill & luck (3 attack results: miss, hit & crit)
   + evade% - based on speed, stealth & luck
 
 Province
@@ -107,17 +107,84 @@ World
 
 Game
  - has pointers to the entire game state (the World, all Characters, etc.)
- - serialized to/from disk with XStream as JSON or XML
+ - serialized to/from disk with XStream as XML
 
 Module
  - base class for describing a particular piece of the game
  - subclass describes a particular module, such as one of the world wonders
+ - some modules need the flexibility to input and output whatever they want,
+   whenever they want
+  + many leaf modules
+  + combat module
+ - base module design is such that the "active" module for a particular client
+   indicates which piece of the game is currently handling their I/O
+ - game server just passes I/O through the active module
+ - methods:
+  - input()
+  - output()
+ - modules can reference other modules
+ - the game starts out pointing at the Login module
+
+Menu
+ - extends Module
+ - many areas have a very similar pattern: a description followed
+   by a series of menu choices; MenuModule class encompasses those
  - fields:
   + name - string
- - methods:
-  + TODO figure out this API
- - modules can reference other modules
- - the main game itself is the "master" module
+  + description - overview printed when you first select the module
+  + modules - list of sub modules accessible from this one
+
+Place
+ - extends Menu
+ - "Places to go"
+ - all places have a few things in common
+  + can "burn the place down" or ("torch the place" if pyrokineticist)
+  + there is a proprietor
+   - can talk to them
+   - can see their stats (maybe only some classes)
+   - can challenge them to a duel
+   - can try to murder them in their sleep
+ - example buildings:
+  + wonder of the world
+  + pawn shop
+  + royal palace
+  + tavern/inn
+  + blacksmith
+  + weapon shop
+  + armor shop
+  + item shop
+  + magic shop
+  + accessory shop
+  + brothel/whorehouse
+  + bounty house
+  + assassin's guild
+  + other guilds?
+  + church
+  + barracks
+  + bank
+
+Person
+ - extends Menu
+ - "People to see"
+ - example people:
+  + the Old Man
+  + Rumor mongers
+  + the "black cloaked figure" (gets you into assassin's guild)
+  + psionic messenger
+
+Action
+ - extends Module
+ - "Things to do"
+ - example actions:
+  + Send message to another player (only if psionic)
+  + Use ability (maybe should enumerate these based on class instead)
+  + Slay mighty beasts
+  + Pity foo
+  + Hunt someone down
+  + View your stats
+  + See world map
+  + Travel to another province
+  + Read daily events
 
 FieldUnitType
  - class for describing a particular unit type of an army
@@ -147,3 +214,23 @@ FieldSquad
   + nickname - string (e.g., 'trollinators', 'doomsday squad')
   + units - list of FieldUnits
 
+wonders of the world:
+ - well of knowledge
+ - fountain of youth
+ - well of magic
+ - well of faith
+ - well of shadows
+ - well of strength
+ - well of rebirth
+ - cave of the red dragon
+ - the all-seeing oracle
+ - cliffs of enlightenment
+ - 16 more...
+
+ideas--
+ - randomly append "Watch out for snakes!" to the end of description blurbs.
+   + 1% chance, maybe? don't let refreshing the description have another
+     chance though -- only once per day
+    - when that happens you can hit 'w' to 'watch out for snakes' and you'll
+      find a dune buggy, which you can drive around. reduces travel time
+      between provinces significantly.

@@ -1,5 +1,5 @@
 //
-// Character.java
+// Person.java
 //
 
 package worlddom.game;
@@ -8,9 +8,10 @@ import java.util.Vector;
 
 /**
  * Base class holding details common to PCs and NPCs.
- * An instance of this class represents a particular PC or NPC.
+ * An instance of this class represents a particular PC or NPC. Called "Person"
+ * rather than "Character" to avoid confusion with java.lang.Character.
  */
-public class Character {
+public class Person {
 
   // -- Fields --
 
@@ -40,24 +41,29 @@ public class Character {
   public int faith;
   public int luck;
   public int charm;
-  public int leadership;//?
 
   public int curHP;
   public int maxHP;
+
+  public int attack() { return strength + gear.attack(); }
+  public int defense() { return vitality + gear.defense(); }
+  public int hit() { return skill + gear.hit(); }
+  public int crit() { return luck + gear.crit(); }
+  public int evade() { return speed + gear.evade(); }
 
   public int honor;
   public int fame;
   public int renown;
 
-  public Province location;
-
   public Gear gear;
 
   public Spellbook spells;
 
-  public Character lord;
+  public Person lord;
+  public Vector<Person> vassals = new Vector<Person>();
 
-  public Vector<Province> governed;
-  public Vector<Province> owned;
+  public Province location;
+  public Vector<Province> governed = new Vector<Province>();
+  public Vector<Province> owned = new Vector<Province>();
 
 }
