@@ -49,7 +49,7 @@ public class Menu extends Module {
     char c = input.charAt(0);
     for (MenuItem item : items) {
       if (c == item.shortcut) {
-        output(input);
+        output(input.toUpperCase() + "\n");
         server.setModule(clientId, item.module);
         break;
       }
