@@ -21,7 +21,7 @@ public class GUIClient implements KeyListener, WindowListener {
   private OutputStream out;
   private boolean alive;
 
-  private JTextArea textArea;
+  private JTextArea textPane;
 
   // -- Constructor --
 
@@ -29,13 +29,13 @@ public class GUIClient implements KeyListener, WindowListener {
     socket = new Socket(url, port);
     alive = true;
 
-    textArea = new JTextArea(25, 80);
-    textArea.setEditable(false);
-    textArea.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
-    JScrollPane areaScroll = new JScrollPane(textArea);
+    textPane = new JTextArea(25, 80);
+    textPane.setEditable(false);
+    textPane.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
+    JScrollPane areaScroll = new JScrollPane(textPane);
     areaScroll.setVerticalScrollBarPolicy(
       JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-    textArea.addKeyListener(this);
+    textPane.addKeyListener(this);
 
     JFrame frame = new JFrame("GUI Game Client - " + url + ":" + port);
     JPanel pane = new JPanel();
@@ -121,7 +121,8 @@ public class GUIClient implements KeyListener, WindowListener {
   // -- Helper methods --
 
   private void output(String data) {
-    textArea.append(data);
+    textPane.append(data);
+    textPane.setCaretPosition(textPane.getDocument().getLength());
   }
 
   // -- Main method --
