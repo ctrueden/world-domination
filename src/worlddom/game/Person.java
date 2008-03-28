@@ -51,9 +51,25 @@ public class Person {
   public int crit() { return luck + gear.crit(); }
   public int evade() { return speed + gear.evade(); }
 
-  public int honor;
-  public int fame;
-  public int renown;
+  /**
+   * A measure of how many people know who you are;
+   * the quality of being leading, important, or well-known.
+   */
+  public int prominence;
+
+  /**
+   * The position one occupies or the standing that one has in the opinion
+   * of others, in respect to attainments, integrity, and the like.
+   * Zero is neutral; higher means a good reputation, lower means a bad one.
+   */
+  public int reputation;
+
+  /**
+   * The combination of moral and other traits which make one the kind of
+   * person one actually is (as contrasted with what others think of one).
+   * Zero is neutral; higher means a good character, lower means a bad one.
+   */
+  public int character;
 
   public Gear gear;
 

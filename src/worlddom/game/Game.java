@@ -11,7 +11,7 @@ public class Game {
   public Vector<Person> characters = new Vector<Person>();
   public World world;
 
-  /** Base class from which other classs are defined. */
+  /** Base class from which other classes are defined. */
   public Job baseJob;
 
   public Game() { }

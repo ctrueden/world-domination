@@ -16,16 +16,47 @@ public class Province {
   /** Introduction to this province. */
   public String description;
 
+  /** List of provinces adjacent to this one. */
   public Vector<Province> neighbors = new Vector<Province>();
 
-  public Character owner;
-  public Character governor;
+  /** Character under whose empire this province falls. */
+  public Person owner;
+
+  /**
+   * Character who governs the province.
+   * Must be either the owner himself, or one of the owner's vassals.
+   */
+  public Person governor;
+
+  /** Captain of the (palace and city) guard. */
+  public Person captain;
+
+  /** Court wizard. */
+  public Person vizier;
+
+  /** Members of the governor's elite guard. */
+  public Vector<Person> elite = new Vector<Person>();
 
   public Food food = new Food();
 
+  /** A measure of the people's fervor for their nation. */
   public int patriotism;
+
+  /**
+   * A measure of the people's freedom.
+   * High means more free; low means more oppressed.
+   * Oppressed people tend to become unhappy more quickly.
+   */
   public int liberty;
+
+  /** A measure of the people's support for the current administration. */
   public int happiness;
+
+  /**
+   * A measure of the people's physical well-being.
+   * Healthy people make better soldiers;
+   * unhealthy people tend to die more frequently.
+   */
   public int health;
 
   public int taxRate;
@@ -37,10 +68,17 @@ public class Province {
   public int troops;
 
   /** List of named civilians. */
-  public Vector<Character> civilians = new Vector<Character>();
+  public Vector<Person> civilians = new Vector<Person>();
 
   /** List of named soldiers. */
-  public Vector<Character> soldiers = new Vector<Character>();
+  public Vector<Person> soldiers = new Vector<Person>();
+
+  /**
+   * List of wanted characters. The military is specifically on the lookout
+   * for these people; if caught within the province, they are taken into
+   * custody.
+   */
+  public Vector<Person> wanted = new Vector<Person>();
 
   // -- Constructor --
 
@@ -68,7 +106,7 @@ public class Province {
     if (taxRate >= 80) return "extreme";
     if (taxRate >= 70) return "killer";
     if (taxRate >= 60) return "brutal";
-    if (taxRate >= 50) return "exhorbitant";
+    if (taxRate >= 50) return "exorbitant";
     if (taxRate >= 40) return "wicked";
     if (taxRate >= 30) return "high";
     if (taxRate >= 20) return "modest";

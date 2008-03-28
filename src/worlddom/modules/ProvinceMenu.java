@@ -27,30 +27,5 @@ public class ProvinceMenu extends Menu {
     items.add(new MenuItem(un, "(T)ravel to another province", 't'));
     items.add(new MenuItem(un, "(V)isit the local tavern", 'v'));
   }
-  // Tavern
-  //  - Talk to bartender
-  //  - Kill bartender
-  //  - Bards can perform
-  // Old Man's house
-  //  - Talk to old man
-  //  - Kill old man
-  //  - See province stats? (including some stats palace doesn't even know)
-  // Royal Palace
-  //  - Attack a neighboring province
-  //  - Hire or release soldiers
-  //  - Sabotage another province
-  //  - Spy on another province
-  //  - Build structures
-  //  - "Give food" -- raise morale
-  //  - Court vizier?
-  //  - Barracks -- where army stays?
-  // Wonder of the World
-  // Pawn shop
-  // Blacksmith
-  //  - sells weapons, armor, shields, helms...
-  //  - crafts custom weapons and armor?
-  // Magic shop
-  //  - sells spells, potions, charms, accessories
-  // Rumor mill
 
 }

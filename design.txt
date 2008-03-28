@@ -136,55 +136,77 @@ Menu
 
 Place
  - extends Menu
- - "Places to go"
  - all places have a few things in common
-  + can "burn the place down" or ("torch the place" if pyrokineticist)
   + there is a proprietor
    - can talk to them
    - can see their stats (maybe only some classes)
    - can challenge them to a duel
-   - can try to murder them in their sleep
- - example buildings:
-  + wonder of the world
-  + pawn shop
-  + royal palace
-  + tavern/inn
-  + blacksmith
-  + weapon shop
-  + armor shop
-  + item shop
-  + magic shop
-  + accessory shop
-  + brothel/whorehouse
-  + bounty house
-  + assassin's guild
-  + other guilds?
-  + church
-  + barracks
-  + bank
-
-Person
- - extends Menu
- - "People to see"
- - example people:
-  + the Old Man
-  + Rumor mongers
-  + the "black cloaked figure" (gets you into assassin's guild)
-  + psionic messenger
-
-Action
- - extends Module
- - "Things to do"
- - example actions:
-  + Send message to another player (only if psionic)
-  + Use ability (maybe should enumerate these based on class instead)
-  + Slay mighty beasts
+   - can capture them alive (by winning the duel?)
+ - (D)irty tactics
+  + (A)ttack proprietor
+  + (B)urn the place down -- or "(T)orch the place" if pyrokineticist
+  + (M)urder proprietor in his/her sleep
+  + (P)ick pockets
+  + (R)ob patrons (tavern) -- or "(R)ob the store" if shop
+   - "Ski mask" item helps avoid becoming wanted for this
+  + (S)educe the proprietor
+  + (I)ncite a bar brawl -- tavern only
+ - list of buildings:
+  + Tavern
+   - Talk to bartender
+   - Bards can perform
+   - Talk to bar maids
+  + Old Man's house
+   - Talk to old man
+   - Kill old man
+   - See province stats? (including some stats palace doesn't even know)
+  + Royal Palace
+   - Attack a neighboring province
+   - Hire or release soldiers
+   - Sabotage another province
+   - Spy on another province
+   - Build structures
+   - "Give food" -- raise morale
+   - Court vizier?
+   - Barracks -- where army stays?
+  + Wonder of the World
+  + Pawn shop
+   - Talk to proprietor
+   - Kill proprietor
+   - Sell stolen goods
+  + Blacksmith
+   - sells weapons, armor, shields, helms...
+   - crafts custom weapons and armor?
+  + General store
+   - sells non-magical items & accessories
+  + Magic boutique
+   - sells spells, potions, charms, magical accessories
+  + Rumor mill
+   - read daily events
+  + Brothel
+  + Guildhall(s)
+   - where elite adventurers gather to provide services to one another
+   - assassin's guild
+   - bounty house
+    + receive money for having slain mighty beasts
+    + recieve money for having captured a character
+     - start with random bounties on various NPCs, to give people things to do
+   - temple of the mind
+    + send psionic message to another player
+   - mercenary guild
+    + hire elite troops
+    + hire squad leaders?
+   - other guilds?
+  + Church
+  + Bank
+   - Deposit funds
+   - Withdraw funds
+   - Rob bank
+ - other actions:
   + Pity foo
-  + Hunt someone down
   + View your stats
   + See world map
   + Travel to another province
-  + Read daily events
 
 FieldUnitType
  - class for describing a particular unit type of an army
@@ -223,9 +245,36 @@ wonders of the world:
  - well of strength
  - well of rebirth
  - cave of the red dragon
+  + can convince dragon to burn down another province
+  + can defeat the dragon for fame and glory
  - the all-seeing oracle
  - cliffs of enlightenment
- - 16 more...
+ - genie that grants one wish, from a set list:
+  + "a province of my own"
+  + "a legendary weapon"
+  + "the demise of my enemies"
+  + "a scrumptious parfait"
+ - 15 more...
+
+equipment slots:
+ - l.hand -- weapon, wand or shield
+ - r.hand -- weapon, wand or shield
+ - torso -- armor, shirt or robe; + a cloak
+ - head -- helmet, headband
+ - neck -- necklace, amulet or periapt
+ - legs -- pants
+ - feet -- shoes, boots or grieves
+ - hands -- gloves or gauntlets; + up to two rings
+ - eyes -- goggles or lenses
+ - ears -- muffs or earrings
+ - nose -- nose ring
+ - some items take multiple slots; e.g., masks take eyes & nose slots
+Slots are not explicitly enumerated; just listed once you equip an item that
+takes that slot. That way it's very easy to add additional slots later.
+
+ANSI codes:
+ - http://sunsite.nus.edu.sg/pub/os2/os2faq/os2faq.2.0062.html
+ - http://pueblo.sourceforge.net/doc/manual/ansi_color_codes.html
 
 ideas--
  - randomly append "Watch out for snakes!" to the end of description blurbs.
@@ -234,3 +283,57 @@ ideas--
     - when that happens you can hit 'w' to 'watch out for snakes' and you'll
       find a dune buggy, which you can drive around. reduces travel time
       between provinces significantly.
+ - characters could have relationships to one another
+  + fields for family members, creating family trees
+
+questions--
+ - How do you win a province?
+  1) take the province by military force
+   - destroy the standing army of the province
+   - fight past the palace guard and captain of the guard
+   - storm the palace
+    + must fight: you & your army vs governor's elite guard & court vizier
+      (see option #3 below)
+    + but all loyalists have a chance of defecting or surrendering before
+      the battle, depending on their honor, loyalty and perceived odds
+    + anyone who surrenders before being killed is captured; options:
+     - (O)ffer a position in your court
+     - (I)mprison
+     - (R)ansom
+     - (E)xile
+     - e(X)ecute
+  2) incite a revolution among the common people
+   - but the revolution may be quashed, if it's not strong enough;
+     figure out the details of this
+   - but they may appoint a new ruler other than you, depending on stats
+   - they choose among all present named characters, based on a formula:
+     highest (charm + reputation + prominence/2) of all present named chars
+  3) personally eliminate all loyalists in the palace
+   - get into the palace somehow:
+    + sneak in with high stealth
+    + or defeat city guard
+    + or bribe captain of the guard
+   - assassinate governor
+    + but to do it, you must defeat his honor guard, and the court vizier
+    + must fight entire honor guard at once
+    + governor may have appointed any number of vassals into his honor guard
+   - once all loyalists are gone (killed, defected or otherwise not present),
+     you can install yourself as ruler
+  4) convince the province's owner to become your vassal
+ - How do you raise an army?
+  1) draft civilians in a province you control
+   - different provinces have different racial compositions,
+     so what unit types you get in your army depends on which province
+  2) hire mercenaries
+  3) draw men to your cause due to your reputation
+   - high fame (i.e., reputation + prominence) results in soldiers occasionally
+     pledging themselves to you, just for the honor of doing so
+  4) acquire troops from a defeated opponent somehow?
+   - remnants of surrendering armies become your troops
+  5) complete certain travel quests?
+ - How does it work to have a wandering army? Is it even possible?
+ - 
+
+little questions--
+ - Where do you meet Satan?
+ - What is the downside of choosing a deadly sin and selling your soul?
