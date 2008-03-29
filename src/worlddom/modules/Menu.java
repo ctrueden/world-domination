@@ -36,7 +36,7 @@ public class Menu extends Module {
         if (count % 2 == 0) sb.append("\n");
         else for (int j=0; j<pad; j++) sb.append(" ");
         sb.append(item.label);
-        pad = item.label.length();
+        pad = 40 - item.label.length();
         count++;
       }
     }

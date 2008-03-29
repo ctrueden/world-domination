@@ -156,6 +156,7 @@ Place
    - Talk to bartender
    - Bards can perform
    - Talk to bar maids
+   - Listen to rumors (i.e., read daily events)
   + Old Man's house
    - Talk to old man
    - Kill old man
@@ -181,8 +182,6 @@ Place
    - sells non-magical items & accessories
   + Magic boutique
    - sells spells, potions, charms, magical accessories
-  + Rumor mill
-   - read daily events
   + Brothel
   + Guildhall(s)
    - where elite adventurers gather to provide services to one another

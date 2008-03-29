@@ -45,11 +45,11 @@ public class Person {
   public int curHP;
   public int maxHP;
 
-  public int attack() { return strength + gear.attack(); }
-  public int defense() { return vitality + gear.defense(); }
-  public int hit() { return skill + gear.hit(); }
-  public int crit() { return luck + gear.crit(); }
-  public int evade() { return speed + gear.evade(); }
+  //public int attack() { return strength + gear.attack(); }
+  //public int defense() { return vitality + gear.defense(); }
+  //public int hit() { return skill + gear.hit(); }
+  //public int crit() { return luck + gear.crit(); }
+  //public int evade() { return speed + gear.evade(); }
 
   /**
    * A measure of how many people know who you are;

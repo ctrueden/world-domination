@@ -124,7 +124,9 @@ public class GameSaver {
     //me.vassals.add(you);
 
     Province wi = new Province("Wisconsin");
+    wi.description = "Wisconsin: America's dairyland. You see some cows.\n";
     Province il = new Province("Illinois");
+    il.description = "Illinois: the land of Lincoln. You see a flat plain.\n";
 
     wi.neighbors.add(il);
     il.neighbors.add(wi);
