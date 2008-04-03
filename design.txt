@@ -296,15 +296,17 @@ questions--
     + but all loyalists have a chance of defecting or surrendering before
       the battle, depending on their honor, loyalty and perceived odds
     + anyone who surrenders before being killed is captured; options:
-     - (O)ffer a position in your court
+     - (R)ecruit
      - (I)mprison
-     - (R)ansom
+     - r(A)nsom
      - (E)xile
      - e(X)ecute
   2) incite a revolution among the common people
    - but the revolution may be quashed, if it's not strong enough;
      figure out the details of this
-   - but they may appoint a new ruler other than you, depending on stats
+   - if you choose to lead them into battle, you get a peasant squad
+    + if you fight with them this way, they always install you as new owner
+    + if not, they may appoint a new ruler other than you, depending on stats
    - they choose among all present named characters, based on a formula:
      highest (charm + reputation + prominence/2) of all present named chars
   3) personally eliminate all loyalists in the palace
@@ -313,9 +315,9 @@ questions--
     + or defeat city guard
     + or bribe captain of the guard
    - assassinate governor
-    + but to do it, you must defeat his honor guard, and the court vizier
-    + must fight entire honor guard at once
-    + governor may have appointed any number of vassals into his honor guard
+    + but to do it, you must defeat his elite guard, and the court vizier
+    + must fight entire elite guard at once
+    + governor may have appointed any number of vassals into his elite guard
    - once all loyalists are gone (killed, defected or otherwise not present),
      you can install yourself as ruler
   4) convince the province's owner to become your vassal
@@ -331,6 +333,7 @@ questions--
    - remnants of surrendering armies become your troops
   5) complete certain travel quests?
  - How does it work to have a wandering army? Is it even possible?
+  + yes, but there are restrictions on where you can go with it
  - 
 
 little questions--

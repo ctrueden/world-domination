@@ -71,8 +71,7 @@ public class Login extends Module {
         // set active character
         server.setCharacter(clientId, character);
         // activate province module
-        ProvinceMenu pm = new ProvinceMenu(server,
-          clientId, this, character.location);
+        ProvinceMenu pm = new ProvinceMenu(server, clientId, this);
         server.setModule(clientId, pm);
         break;
     }
