@@ -43,6 +43,9 @@ public class ProvinceMenu extends Menu {
     items.add(new MenuItem(smith, "(S)mithy", 's'));
     items.add(new MenuItem(un, "(T)ravel elsewhere", 't'));
     items.add(new MenuItem(vice, "Den of (V)ice", 'v'));
+
+    ShowStats showStats = new ShowStats(server, clientId, this);
+    items.add(new MenuItem(showStats, "Sho(w) Stats", 'w'));
   }
 
 }

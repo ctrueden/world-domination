@@ -211,7 +211,7 @@ public class GameSaver {
     knight.arcane = samurai;
     knight.divine = barbarian;
     knight.shadow = monk;
-    
+
     wizard.martial = warWizard;
     wizard.divine = holySorcerer;
     wizard.shadow = illusionist;

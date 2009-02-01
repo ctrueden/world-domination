@@ -17,8 +17,8 @@ public class SmithMenu extends Menu {
     description = "Welcome to the smithy, home of the blacksmith.";
     Unimplemented un = new Unimplemented(server, clientId, this);
 
-    items.add(new MenuItem(un, "// Buy (W)eapon", 'w'));
-    items.add(new MenuItem(un, "// Buy (A)rmor", 'a'));
+    items.add(new MenuItem(un, "Buy (W)eapon", 'w'));
+    items.add(new MenuItem(un, "Buy (A)rmor", 'a'));
   }
 
 }

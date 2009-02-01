@@ -17,8 +17,8 @@ public class OldManMenu extends Menu {
     description = "Welcome to the old man's house. Respect the elderly.";
     Unimplemented un = new Unimplemented(server, clientId, this);
 
-    items.add(new MenuItem(un, "// (L)isten to the old man ramble", 'l'));
-    items.add(new MenuItem(un, "// (K)ill the old man", 'k'));
+    items.add(new MenuItem(un, "(L)isten to the old man ramble", 'l'));
+    items.add(new MenuItem(un, "(K)ill the old man", 'k'));
   }
 
 }

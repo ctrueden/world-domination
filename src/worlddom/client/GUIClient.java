@@ -31,7 +31,7 @@ public class GUIClient implements KeyListener, WindowListener {
 
     textPane = new JTextArea(25, 80);
     textPane.setEditable(false);
-    textPane.setFont(new Font(Font.MONOSPACED, Font.PLAIN, 12));
+    textPane.setFont(new Font("Monospaced", Font.PLAIN, 12));
     JScrollPane areaScroll = new JScrollPane(textPane);
     areaScroll.setVerticalScrollBarPolicy(
       JScrollPane.VERTICAL_SCROLLBAR_NEVER);
