@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+		http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>restless</groupId>
+	<artifactId>world-domination</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+
+	<name>World Domination</name>
+	<description>A fantasy door game.</description>
+	<url>https://github.com/ctrueden/world-domination</url>
+	<inceptionYear>2008</inceptionYear>
+	<organization>
+		<name>restlesscoder.net</name>
+		<url>http://restlesscoder.net/</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>GNU General Public License v3+</name>
+			<url>http://www.gnu.org/licenses/gpl.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.4.8</version>
+		</dependency>
+	</dependencies>
+
+	<developers>
+		<developer>
+			<id>curtis</id>
+			<name>Curtis Rueden</name>
+			<email>ctrueden@gmail.com</email>
+			<url>http://restlesscoder.net/</url>
+			<organization>restlesscoder.net</organization>
+			<organizationUrl>http://restlesscoder.net/</organizationUrl>
+			<timezone>-6</timezone>
+		</developer>
+	</developers>
+
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<scm>
+		<connection>scm:git:git://github.com/ctrueden/world-domination</connection>
+		<developerConnection>scm:git:git@github.com:ctrueden/world-domination</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/ctrueden/world-domination</url>
+	</scm>
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/ctrueden/world-domination/issues</url>
+	</issueManagement>
+
+	<properties>
+		<!-- NB: Avoid platform encoding warning when copying resources. -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<main-class>net.restlesscoder.worlddom.server.GameServer</main-class>
+	</properties>
+
+	<build>
+		<defaultGoal>package</defaultGoal>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<packageName>net.restlesscoder.worlddom</packageName>
+							<mainClass>${main-class}</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.4.0</version>
+				<configuration>
+					<mainClass>${main-class}</mainClass>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>1.6</version>
+				<configuration>
+					<licenseName>gpl_v3</licenseName>
+					<organizationName>Curtis Rueden</organizationName>
+					<projectName>World Domination fantasy door game.</projectName>
+					<addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+					<canUpdateDescription>true</canUpdateDescription>
+					<canUpdateCopyright>true</canUpdateCopyright>
+				</configuration>
+				</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>client</id>
+			<properties>
+				<main-class>net.restlesscoder.worlddom.client.GUIClient</main-class>
+			</properties>
+		</profile>
+	</profiles>
+</project>
