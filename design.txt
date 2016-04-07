@@ -161,6 +161,7 @@ Place
    - Talk to old man
    - Kill old man
    - See province stats? (including some stats palace doesn't even know)
+   - Every province has hints/secrets; he tells one per day (maybe)
   + Royal Palace
    - Attack a neighboring province
    - Hire or release soldiers
@@ -188,7 +189,7 @@ Place
    - assassin's guild
    - bounty house
     + receive money for having slain mighty beasts
-    + recieve money for having captured a character
+    + receive money for having captured a character
      - start with random bounties on various NPCs, to give people things to do
    - temple of the mind
     + send psionic message to another player
@@ -339,3 +340,139 @@ questions--
 little questions--
  - Where do you meet Satan?
  - What is the downside of choosing a deadly sin and selling your soul?
+
+Classes
+-------
+F = fighter (martial)
+M = mage (magic arts)
+C = cleric (divine)
+R = rogue (shadow)
+W = barbarian (nature/wilderness)
+
+FC = paladin
+SFM = ninja
+SF = assassin
+monk
+bard
+thief
+psion
+MB = sorcerer/wild mage
+warlock
+wizard
+Mx = necromancer
+Mxy = souleater
+M? = pyromancer/pyrotechnician/evoker
+M? = enchanter
+M? = diviner
+M?? = sage
+CB = druid
+BC = ranger
+CS? = favored soul
+CS? = temple raider
+archon
+beastmaster
+scout
+spellsword
+shadowdancer
+bladesinger
+arcane trickster
+arcane archer
+death knight
+samurai
+jester
+loremaster
+geomancer
+CS = urpriest
+eldritch knight
+knight
+cavalier
+
+
+
+
+
+P - peasant
+ 3
+ 6
+ 9
+12
+====
+F - fighter
+M - mage
+C - cleric
+S - rogue
+W - ???
+WF - barbarian
+====
+FM - 
+FC - 
+FS - 
+
+MF - 
+MC - 
+MS - 
+
+CF - 
+CM - 
+CS - 
+
+SF - 
+SM - 
+SC - 
+====
+FMC - 
+FMS - 
+FCM - 
+FCS - 
+FSM - 
+FSC - 
+
+MFC - 
+MFS - 
+MCF - 
+MCS - 
+MSF - 
+MSC - 
+
+CFM - 
+CFS - 
+CMF - 
+CMS - 
+CSF - 
+CSM - 
+
+SFM - 
+SFC - 
+SMF - 
+SMC - 
+SCF - 
+SCM - 
+==== - 
+FMCS - 
+FMSC - 
+FCMS - 
+FCSM - 
+FSMC - 
+FSCM - 
+
+MFCS - 
+MFSC - 
+MCFS - 
+MCSF - 
+MSFC - 
+MSCF - 
+
+CFMS - 
+CFSM - 
+CMFS - 
+CMSF - 
+CSFM - 
+CSMF - 
+
+SFMC - 
+SFCM - 
+SMFC - 
+SMCF - 
+SCFM - 
+SCMF - 
+====
