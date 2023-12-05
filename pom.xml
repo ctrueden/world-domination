@@ -29,7 +29,7 @@
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>
 			<artifactId>xstream</artifactId>
-			<version>1.4.19</version>
+			<version>1.4.20</version>
 		</dependency>
 	</dependencies>
 
@@ -44,10 +44,6 @@
 			<timezone>-6</timezone>
 		</developer>
 	</developers>
-
-	<prerequisites>
-		<maven>3.0</maven>
-	</prerequisites>
 
 	<scm>
 		<connection>scm:git:https://github.com/ctrueden/world-domination</connection>
